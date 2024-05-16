@@ -9,15 +9,15 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="relative shadow bg-[#15151580] rounded-lg ">
-      <div className="container px-6 py-4 mx-auto">
+    <nav className="max-w-7xl fixed z-10 shadow bg-[#15151580]  w-full   rounded-lg text-white">
+      <div className="container px-6  py-2 mx-auto">
         <div className="lg:flex lg:items-center lg:justify-between">
           <div className="flex items-center justify-between">
             <a href="#">
-              <h2 className="text-3xl font-extrabold">
+              <h2 className="text-2xl font-extrabold">
               BISTRO BOSS
               <p>
-                <span className="text-lg font-bold capitalize ">Restaurant</span>
+                <span className=" font-bold capitalize ">Restaurant</span>
               </p>
               </h2>
             </a>
