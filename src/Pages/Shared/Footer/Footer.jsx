@@ -1,78 +1,108 @@
 const Footer = () => {
-    return (
-        <footer className="bg-white dark:bg-gray-900">
-            <div className="container p-6 mx-auto">
-                <div className="lg:flex">
-                    <div className="w-full -mx-6 lg:w-2/5">
-                        <div className="px-6">
-                            <a href="#">
-                                <img className="w-auto h-7" src="https://merakiui.com/images/full-logo.svg" alt="" />
-                            </a>
+  return (
+    <footer className=" border border-gray-500 rounded-2xl">
+      <div className="container p-1 mx-auto">
+        <div className="lg:flex">
+          <div className="w-full  lg:w-1/2 bg-[#1F2937] p-5 text-center">
+            <div className="px-6">
+              <h2 className="text-2xl">CONTACT US</h2>
 
-                            <p className="max-w-sm mt-2 text-gray-500 dark:text-gray-400">Join 31,000+ other and never miss out on new tips, tutorials, and more.</p>
+              <p className="max-w-sm mt-2  mx-auto">
+                123 ABS Street, Uni 21, Bangladesh
+                <br />
+                +88 123456789
+                <br />
+                Mon - Fri: 08:00 - 22:00
+                <br />
+                Sat - Sun: 10:00 - 23:00
+              </p>
 
-                            <div className="flex mt-6 -mx-2">
-                                <a href="#" className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400" aria-label="Reddit">
-                                    <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M2.00195 12.002C2.00312 16.9214 5.58036 21.1101 10.439 21.881V14.892H7.90195V12.002H10.442V9.80204C10.3284 8.75958 10.6845 7.72064 11.4136 6.96698C12.1427 6.21332 13.1693 5.82306 14.215 5.90204C14.9655 5.91417 15.7141 5.98101 16.455 6.10205V8.56104H15.191C14.7558 8.50405 14.3183 8.64777 14.0017 8.95171C13.6851 9.25566 13.5237 9.68693 13.563 10.124V12.002H16.334L15.891 14.893H13.563V21.881C18.8174 21.0506 22.502 16.2518 21.9475 10.9611C21.3929 5.67041 16.7932 1.73997 11.4808 2.01722C6.16831 2.29447 2.0028 6.68235 2.00195 12.002Z" />
-                                    </svg>
-                                </a>
+              <div className="flex mt-6 text-center justify-center items-center">
+                <a
+                  href="#"
+                  className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+                  aria-label="Reddit"
+                >
+                  <svg
+                    className="w-5 h-5 fill-current"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M2.00195 12.002C2.00312 16.9214 5.58036 21.1101 10.439 21.881V14.892H7.90195V12.002H10.442V9.80204C10.3284 8.75958 10.6845 7.72064 11.4136 6.96698C12.1427 6.21332 13.1693 5.82306 14.215 5.90204C14.9655 5.91417 15.7141 5.98101 16.455 6.10205V8.56104H15.191C14.7558 8.50405 14.3183 8.64777 14.0017 8.95171C13.6851 9.25566 13.5237 9.68693 13.563 10.124V12.002H16.334L15.891 14.893H13.563V21.881C18.8174 21.0506 22.502 16.2518 21.9475 10.9611C21.3929 5.67041 16.7932 1.73997 11.4808 2.01722C6.16831 2.29447 2.0028 6.68235 2.00195 12.002Z" />
+                  </svg>
+                </a>
 
-                                <a href="#" className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400" aria-label="Facebook">
-                                    <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M2.00195 12.002C2.00312 16.9214 5.58036 21.1101 10.439 21.881V14.892H7.90195V12.002H10.442V9.80204C10.3284 8.75958 10.6845 7.72064 11.4136 6.96698C12.1427 6.21332 13.1693 5.82306 14.215 5.90204C14.9655 5.91417 15.7141 5.98101 16.455 6.10205V8.56104H15.191C14.7558 8.50405 14.3183 8.64777 14.0017 8.95171C13.6851 9.25566 13.5237 9.68693 13.563 10.124V12.002H16.334L15.891 14.893H13.563V21.881C18.8174 21.0506 22.502 16.2518 21.9475 10.9611C21.3929 5.67041 16.7932 1.73997 11.4808 2.01722C6.16831 2.29447 2.0028 6.68235 2.00195 12.002Z" />
-                                    </svg>
-                                </a>
+                <a
+                  href="#"
+                  className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+                  aria-label="Facebook"
+                >
+                  <svg
+                    className="w-5 h-5 fill-current"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M2.00195 12.002C2.00312 16.9214 5.58036 21.1101 10.439 21.881V14.892H7.90195V12.002H10.442V9.80204C10.3284 8.75958 10.6845 7.72064 11.4136 6.96698C12.1427 6.21332 13.1693 5.82306 14.215 5.90204C14.9655 5.91417 15.7141 5.98101 16.455 6.10205V8.56104H15.191C14.7558 8.50405 14.3183 8.64777 14.0017 8.95171C13.6851 9.25566 13.5237 9.68693 13.563 10.124V12.002H16.334L15.891 14.893H13.563V21.881C18.8174 21.0506 22.502 16.2518 21.9475 10.9611C21.3929 5.67041 16.7932 1.73997 11.4808 2.01722C6.16831 2.29447 2.0028 6.68235 2.00195 12.002Z" />
+                  </svg>
+                </a>
 
-                                <a href="#" className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400" aria-label="Github">
-                                    <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M12.026 2C7.13295 1.99937 2.96183 5.54799 2.17842 10.3779C1.395 15.2079 4.23061 19.893 8.87302 21.439C9.37302 21.529 9.55202 21.222 9.55202 20.958C9.55202 20.721 9.54402 20.093 9.54102 19.258C6.76602 19.858 6.18002 17.92 6.18002 17.92C5.99733 17.317 5.60459 16.7993 5.07302 16.461C4.17302 15.842 5.14202 15.856 5.14202 15.856C5.78269 15.9438 6.34657 16.3235 6.66902 16.884C6.94195 17.3803 7.40177 17.747 7.94632 17.9026C8.49087 18.0583 9.07503 17.99 9.56902 17.713C9.61544 17.207 9.84055 16.7341 10.204 16.379C7.99002 16.128 5.66202 15.272 5.66202 11.449C5.64973 10.4602 6.01691 9.5043 6.68802 8.778C6.38437 7.91731 6.42013 6.97325 6.78802 6.138C6.78802 6.138 7.62502 5.869 9.53002 7.159C11.1639 6.71101 12.8882 6.71101 14.522 7.159C16.428 5.868 17.264 6.138 17.264 6.138C17.6336 6.97286 17.6694 7.91757 17.364 8.778C18.0376 9.50423 18.4045 10.4626 18.388 11.453C18.388 15.286 16.058 16.128 13.836 16.375C14.3153 16.8651 14.5612 17.5373 14.511 18.221C14.511 19.555 14.499 20.631 14.499 20.958C14.499 21.225 14.677 21.535 15.186 21.437C19.8265 19.8884 22.6591 15.203 21.874 10.3743C21.089 5.54565 16.9181 1.99888 12.026 2Z" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="mt-6 lg:mt-0 lg:flex-1">
-                        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                            <div>
-                                <h3 className="text-gray-700 uppercase dark:text-white">About</h3>
-                                <a href="#" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Company</a>
-                                <a href="#" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Community</a>
-                                <a href="#" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Careers</a>
-                            </div>
-
-                            <div>
-                                <h3 className="text-gray-700 uppercase dark:text-white">Blog</h3>
-                                <a href="#" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Tech</a>
-                                <a href="#" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Music</a>
-                                <a href="#" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Videos</a>
-                            </div>
-
-                            <div>
-                                <h3 className="text-gray-700 uppercase dark:text-white">Products</h3>
-                                <a href="#" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Mega Cloud</a>
-                                <a href="#" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Aperion UI</a>
-                                <a href="#" className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Meraki UI</a>
-                            </div>
-
-                            <div>
-                                <h3 className="text-gray-700 uppercase dark:text-white">Contact</h3>
-                                <span className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">+1 526 654 8965</span>
-                                <span className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">example@email.com</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <hr className="h-px my-6 bg-gray-200 border-none dark:bg-gray-700" />
-
-                <div>
-                    <p className="text-center text-gray-500 dark:text-gray-400">© Brand 2020 - All rights reserved</p>
-                </div>
+                <a
+                  href="#"
+                  className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+                  aria-label="Github"
+                >
+                  <svg
+                    className="w-5 h-5 fill-current"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M12.026 2C7.13295 1.99937 2.96183 5.54799 2.17842 10.3779C1.395 15.2079 4.23061 19.893 8.87302 21.439C9.37302 21.529 9.55202 21.222 9.55202 20.958C9.55202 20.721 9.54402 20.093 9.54102 19.258C6.76602 19.858 6.18002 17.92 6.18002 17.92C5.99733 17.317 5.60459 16.7993 5.07302 16.461C4.17302 15.842 5.14202 15.856 5.14202 15.856C5.78269 15.9438 6.34657 16.3235 6.66902 16.884C6.94195 17.3803 7.40177 17.747 7.94632 17.9026C8.49087 18.0583 9.07503 17.99 9.56902 17.713C9.61544 17.207 9.84055 16.7341 10.204 16.379C7.99002 16.128 5.66202 15.272 5.66202 11.449C5.64973 10.4602 6.01691 9.5043 6.68802 8.778C6.38437 7.91731 6.42013 6.97325 6.78802 6.138C6.78802 6.138 7.62502 5.869 9.53002 7.159C11.1639 6.71101 12.8882 6.71101 14.522 7.159C16.428 5.868 17.264 6.138 17.264 6.138C17.6336 6.97286 17.6694 7.91757 17.364 8.778C18.0376 9.50423 18.4045 10.4626 18.388 11.453C18.388 15.286 16.058 16.128 13.836 16.375C14.3153 16.8651 14.5612 17.5373 14.511 18.221C14.511 19.555 14.499 20.631 14.499 20.958C14.499 21.225 14.677 21.535 15.186 21.437C19.8265 19.8884 22.6591 15.203 21.874 10.3743C21.089 5.54565 16.9181 1.99888 12.026 2Z" />
+                  </svg>
+                </a>
+              </div>
             </div>
-        </footer>
-    );
+          </div>
+
+          <div className="mt-6 lg:mt-0 lg:flex-1 bg-[#111827] p-5">
+            <div className="max-w-md mx-auto">
+              <div className="text-center">
+                <h2 className="text-xl">Follow US</h2>
+                <p className="text-center">Join us on social media</p>
+                <div className="flex justify-center items-center text-sm gap-10 mt-7 ">
+                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+  <path d="M20.2105 35V19.036H25.5668L26.3704 12.8127H20.2105V8.84007C20.2105 7.03885 20.7087 5.81134 23.2945 5.81134L26.5872 5.80998V0.243652C26.0178 0.169654 24.0632 0 21.7882 0C17.0376 0 13.7853 2.89969 13.7853 8.22372V12.8127H8.41278V19.036H13.7853V35H20.2105Z" fill="white"/>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+  <path d="M25.342 0H9.63105C4.27748 0 0 4.27748 0 9.63105V25.3689C0 30.6956 4.27748 35 9.63105 35H25.3689C30.6956 35 35 30.7225 35 25.3689V9.63105C34.9731 4.27748 30.6956 0 25.342 0ZM31.9062 23.97C31.9062 28.3282 28.3551 31.9331 23.9431 31.9331H11.03C6.67179 31.9331 3.06687 28.382 3.06687 23.97V11.03C3.06687 6.67179 6.61799 3.06687 11.03 3.06687H24.0238C28.382 3.06687 31.9869 6.61799 31.9869 11.03V23.97H31.9062Z" fill="white"/>
+  <path d="M23.8624 11.1918L23.7817 11.1111L23.701 11.0304C22.0331 9.36243 19.8002 8.44775 17.4866 8.44775C12.5365 8.47466 8.52807 12.5369 8.55497 17.487C8.55497 19.8813 9.52346 22.168 11.1914 23.8628C12.8594 25.5577 15.1192 26.4993 17.4866 26.4993C22.4635 26.4185 26.4451 22.2487 26.3644 17.2179C26.3105 14.985 25.4497 12.8059 23.8624 11.1918ZM17.4866 23.4324C14.2045 23.4862 11.5411 20.8498 11.4873 17.5677C11.4335 14.2856 14.07 11.6222 17.3521 11.5684C20.6341 11.5146 23.2975 14.1511 23.3513 17.4331V17.5139C23.3513 20.7152 20.7149 23.3786 17.4866 23.4324Z" fill="white"/>
+  <path d="M29.0276 8.04428C29.0276 9.22799 28.113 10.1965 26.9293 10.1965C26.3643 10.1965 25.8263 9.98125 25.4496 9.57772C24.6157 8.74374 24.6157 7.34482 25.5034 6.51084C25.907 6.10731 26.4181 5.89209 26.9831 5.89209C27.4673 5.89209 27.9516 6.08041 28.3282 6.37633L28.382 6.43014C28.4627 6.48394 28.5165 6.56465 28.5703 6.61845L28.6241 6.67226C28.8393 7.04889 29.0276 7.53314 29.0276 8.04428Z" fill="white"/>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+  <g clip-path="url(#clip0_2_616)">
+    <path d="M35 6.64781C33.6984 7.21875 32.3116 7.59719 30.8656 7.78094C32.3531 6.89281 33.4884 5.49719 34.0222 3.815C32.6353 4.64187 31.1041 5.22594 29.4722 5.55188C28.1553 4.14969 26.2784 3.28125 24.2309 3.28125C20.2584 3.28125 17.0603 6.50563 17.0603 10.4584C17.0603 11.0272 17.1084 11.5741 17.2266 12.0947C11.2612 11.8038 5.98281 8.94469 2.43687 4.58938C1.81781 5.66344 1.45469 6.89281 1.45469 8.21625C1.45469 10.7013 2.73438 12.9041 4.64187 14.1794C3.48906 14.1575 2.35812 13.8228 1.4 13.2956C1.4 13.3175 1.4 13.3459 1.4 13.3744C1.4 16.8612 3.88719 19.7575 7.14875 20.4247C6.56469 20.5844 5.92812 20.6609 5.2675 20.6609C4.80813 20.6609 4.34437 20.6347 3.90906 20.5384C4.83875 23.38 7.47688 25.4691 10.6138 25.5369C8.1725 27.4466 5.07281 28.5972 1.71719 28.5972C1.12875 28.5972 0.564375 28.5709 0 28.4987C3.17844 30.5484 6.94531 31.7188 11.0075 31.7188C24.2113 31.7188 31.43 20.7812 31.43 11.3006C31.43 10.9834 31.4191 10.6772 31.4037 10.3731C32.8278 9.3625 34.0244 8.10031 35 6.64781Z" fill="white"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_2_616">
+      <rect width="35" height="35" fill="white"/>
+    </clipPath>
+  </defs>
+</svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr className="h-px my-6 bg-gray-200 border-none dark:bg-gray-700" />
+
+        <div>
+          <p className="text-center ">
+          Copyright © CulinaryCloud. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;
