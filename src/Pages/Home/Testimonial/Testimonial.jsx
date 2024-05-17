@@ -19,7 +19,7 @@ const Testimonial = () => {
       .catch((err) => console.log(err));
   }, []);
   return (
-    <div>
+    <div className="my-10">
       <SectionTitle
         heading={"Testimonial"}
         subHeading={"---What Our Clients Say---"}
