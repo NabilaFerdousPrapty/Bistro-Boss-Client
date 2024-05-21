@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Cover from '../Shared/Cover/Cover';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
@@ -6,7 +6,12 @@ import 'react-tabs/style/react-tabs.css';
 import UseMenu from './../../hooks/UseMenu';
 import FoodCard from './FoodCard/FoodCard';
 const OurShop = () => {
+    const categories=["salad","pizza","soup","dessert","offered","drinks"];
+    const [tabIndex, setTabIndex] = useState(0);
+    const initailIndex=categories.indexOf();
     const [menu,loading] = UseMenu();
+
+
   // console.log(menu);
   const dessert = menu.filter((item) => item.category === "dessert");
   const soup = menu.filter((item) => item.category === "soup");
@@ -23,9 +28,9 @@ const OurShop = () => {
       </Helmet>
             <Cover img="https://i.ibb.co/wJ8hT4G/fed9f26d5d16ac31ad011eeb8007733a.jpg" heading="Our Shop" subHeading="Check out our shop Would you like to try a dish?" />
             <div className='my-5'>
-            <Tabs>
+            <Tabs defaultIndex={tabIndex} onSelect={(index)=>{setTabIndex(index)}}>
     <TabList>
-      <Tab>Salad</Tab>
+      <Tab >Salad</Tab>
       <Tab>pizza</Tab>
       <Tab>soups</Tab>
       <Tab>desserts</Tab>
