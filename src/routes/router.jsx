@@ -17,7 +17,7 @@ const router = createBrowserRouter([
             path:'/contact',
             element:<ContactUs/>
         },{
-            path:'/shop',
+            path:'/shop/:category',
             element:<OurShop/>
         },{
             path:'/menu',
