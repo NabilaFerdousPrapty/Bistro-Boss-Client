@@ -1,13 +1,16 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import img from '../../assets/others/authentication1.png'
 import { loadCaptchaEnginge, LoadCanvasTemplate,  validateCaptcha } from 'react-simple-captcha';
 import { useEffect, useRef, useState } from 'react';
 import toast from 'react-hot-toast';
 import useAuth from '../../hooks/UseAuth';
-import { set } from 'firebase/database';
+
 const Login = () => {
   const navigate=useNavigate();
-  const {signInWithGoogle,setUser,user}=useAuth();
+  const location=useLocation();
+  let from=location.state?.from || '/';
+  
+  const {signInWithGoogle,setUser,signInWithEmailAndPassword}=useAuth();
   
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -17,13 +20,28 @@ const Login = () => {
 
     const password = form.password.value;
    console.log(email,password);
+    try {
+      const user = await signInWithEmailAndPassword(email, password);
+      setUser(user);
+      console.log(user);
+      toast.success('You are logged in successfully')
+      navigate(from)
+    } catch (error) {
+      toast.error('Failed to login');
+      console.log(error);
+    }
+
   };
  const handleGoogleLogin=()=>{
-  signInWithGoogle().then((user)=>{
+  signInWithGoogle()
+  .then((user)=>{
     setUser(user);
-    navigate('/')}
+    toast.success('Logged in successfully');
+    console.log(user);
+    navigate(from)}
   )
   .catch((error)=>{
+    toast.error('Failed to login');
     console.log(error);
   })
 }
@@ -110,7 +128,7 @@ const Login = () => {
           <span className="w-1/5 border-b  lg:w-1/4"></span>
         </div>
 
-       <form action="" onSubmit={handleLogin}>
+       <form  onSubmit={handleLogin}>
        <div className="mt-4">
           <label
             className="block mb-2 text-sm font-medium text-gray-600 "
@@ -161,15 +179,15 @@ const Login = () => {
           </div>
 
           <input
-          name='captcha'
+          name='captcha' onBlur={handleValidateCaptcha}
             id="captcha" ref={capchaRef}
             placeholder='Enter Captcha'
             className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg ] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300"
             type="text"
           />
-          <button onClick={handleValidateCaptcha} className="btn btn-xs btn-outline w-full mt-2">
+          {/* <button onClick={handleValidateCaptcha} className="btn btn-xs btn-outline w-full mt-2">
             validate Captcha
-          </button>
+          </button> */}
         </div>
         <div className="mt-6">
           <button className={`w-full ${loginDisabled ?  disabledButton :enabledButton  }  `} type='submit' disabled={loginDisabled}>
