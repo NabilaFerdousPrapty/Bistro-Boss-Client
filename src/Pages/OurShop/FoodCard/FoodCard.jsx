@@ -1,6 +1,31 @@
 import React from "react";
+import useAuth from "../../../hooks/UseAuth";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const FoodCard = ({ item }) => {
+  const {user}=useAuth();
+  const navigate=useNavigate();
+  const handleAddToCart = (food) => {
+    if (user && user.email) {
+      console.log("Added to cart", food,user.email);
+      
+    }else{
+      Swal.fire({
+        title: 'Please Login First',
+        icon: 'error',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, Login'
+       
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate('/login')
+        }
+      })
+    }
+
+  }
+
   const { name, image, price, recipe } = item;
   return (
     <div>
@@ -19,7 +44,7 @@ const FoodCard = ({ item }) => {
             </p>
           </div>
           <div className="my-6 mx-auto">
-            <button className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 ">
+            <button onClick={()=>handleAddToCart(item)} className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 ">
               Add to cart
             </button>
           </div>
