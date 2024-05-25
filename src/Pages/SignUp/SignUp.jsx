@@ -1,8 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/UseAuth";
 import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 const SignUp = () => {
-  const { signInWithGoogle, setUser, user, createUser } = useAuth();
+  const { signInWithGoogle, setUser, user, createUser, updateUserProfile} = useAuth();
   const navigate = useNavigate();
   const regex = /\S+@\S+\.\S+/;
   const handleSignUp = async (e) => {
@@ -11,6 +12,7 @@ const SignUp = () => {
     const email = form.email.value;
     const password = form.password.value;
     const name = form.name.value;
+    const photo = form.photo.value;
     const confirmPassword = form.confirmPassword.value;
     if (password !== confirmPassword) {
       console.log("Password does not match");
@@ -28,6 +30,24 @@ const SignUp = () => {
     try {
       const user = await createUser(email, password);
       console.log(user);
+      updateUserProfile(name, photo)
+      .then((res) => {
+        console.log(res);
+        Swal.fire({
+          title: "User Created Successfully!",
+          text: "You will be redirected to the home page.",
+          icon: "success",
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        Swal.fire({
+          title: "Something went wrong!",
+          text: err.message,
+          icon: "error",
+      })
+    });
+
 
       setUser(user);
       navigate("/"), form.reset();
@@ -116,6 +136,21 @@ const SignUp = () => {
                 type="email"
               />
             </div>
+            <div className="mt-4">
+              <label
+                className="block mb-2 text-sm font-medium text-gray-600 "
+                htmlFor="LoggingEmailAddress"
+              >
+                Photo URL
+              </label>
+              <input
+                name="photo"
+                id="LoggingPhotoURL"
+                className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg   focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300"
+                type="url"
+              />
+            </div>
+
 
             <div className="mt-4">
               <div className="flex justify-between">
