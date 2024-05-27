@@ -3,9 +3,9 @@ import useAuth from "../../hooks/UseAuth";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 const SignUp = () => {
-  const { signInWithGoogle, setUser, user, createUser, updateUserProfile} = useAuth();
+  const {  setUser,  createUser, updateUserProfile} = useAuth();
   const navigate = useNavigate();
-  const regex = /\S+@\S+\.\S+/;
+  const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
   const handleSignUp = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -16,47 +16,40 @@ const SignUp = () => {
     const confirmPassword = form.confirmPassword.value;
     if (password !== confirmPassword) {
       console.log("Password does not match");
-      form.reset();
-      return;
-    }
-    if (!regex.test(password)) {
-      toast.error(
-        "Password must be at least 6 characters long and contain a number and a special character"
-      );
-      form.reset();
-      return;
-    
-    }
-    try {
-      const user = await createUser(email, password);
-      console.log(user);
-      updateUserProfile(name, photo)
-      .then((res) => {
-        console.log(res);
-        Swal.fire({
-          title: "User Created Successfully!",
-          text: "You will be redirected to the home page.",
-          icon: "success",
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-        Swal.fire({
-          title: "Something went wrong!",
-          text: err.message,
-          icon: "error",
-      })
-    });
-
-
-      setUser(user);
-      navigate("/"), form.reset();
-    } catch (error) {
       
-      console.log(error);
+      toast.error("Password does not match");
       form.reset();
+      return;
     }
-  };
+    if(!regex.test(password)){
+      toast.error('Password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters');
+      form.reset();
+      return;
+
+  }
+   createUser(email, password)
+      .then((user) => {
+        updateUserProfile(name, photo);
+        Swal.fire({
+          title: "User Created Successfully",
+          icon: "success",
+          cancelButtonText: "Ok",
+        })
+          
+        setUser(user);
+      navigate("/"),
+       form.reset();
+        console.log(user);
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error("Failed to create user");
+        form.reset();
+      });
+
+      
+    } 
+
 
   return (
     <div className="flex justify-center items-center h-screen">

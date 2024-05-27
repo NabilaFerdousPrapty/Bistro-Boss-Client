@@ -7,7 +7,7 @@ import { logEvent } from 'firebase/analytics';
 const MainLayout = () => {
      const location=useLocation();
      const noHeaderFooter=location.pathname.includes('login') || location.pathname.includes('signUp');
-    //  console.log(location.pathname);
+     console.log(location.pathname);
     return (
         <div>
             <div className='max-w-7xl mx-auto'>

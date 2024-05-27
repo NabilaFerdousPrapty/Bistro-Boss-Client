@@ -4,13 +4,14 @@ import { loadCaptchaEnginge, LoadCanvasTemplate,  validateCaptcha } from 'react-
 import { useEffect, useRef, useState } from 'react';
 import toast from 'react-hot-toast';
 import useAuth from '../../hooks/UseAuth';
+import Swal from 'sweetalert2';
 
 const Login = () => {
   const navigate=useNavigate();
   const location=useLocation();
   let from=location.state?.from || '/';
   
-  const {signInWithGoogle,setUser,signInWithEmailAndPassword}=useAuth();
+  const {signInWithGoogle,setUser,signInWithEmail}=useAuth();
   
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -20,16 +21,23 @@ const Login = () => {
 
     const password = form.password.value;
    console.log(email,password);
-    try {
-      const user = await signInWithEmailAndPassword(email, password);
+   signInWithEmail(email,password)
+    .then((user)=>{
+      Swal.fire({
+        title: 'Logged in successfully',
+        icon: 'success',
+        showCancelButton: false,
+        confirmButtonText: 'Ok'
+      })
       setUser(user);
+     
       console.log(user);
-      toast.success('You are logged in successfully')
-      navigate(from)
-    } catch (error) {
+      navigate(from);
+    }).catch((error)=>{
       toast.error('Failed to login');
       console.log(error);
     }
+    )
 
   };
  const handleGoogleLogin=()=>{
@@ -202,7 +210,7 @@ const Login = () => {
           <span className="w-1/5 border-b  md:w-1/4"></span>
 
           <Link
-            to={'/signup'}
+            to={'/signUp'}
             className="text-xs uppercase dark:text-gray-400 hover:underline"
           >
             or sign up
