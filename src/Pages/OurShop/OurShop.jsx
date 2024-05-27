@@ -41,7 +41,7 @@ const OurShop = () => {
           }}
         >
           <TabList>
-            <Tab>Salad</Tab>
+            <Tab>salad</Tab>
             <Tab>pizza</Tab>
             <Tab>soups</Tab>
             <Tab>desserts</Tab>

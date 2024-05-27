@@ -39,7 +39,7 @@ const Menu = () => {
       <MenuCategory items={offered} />
       <MenuCategory heading={"DESSERTS"} subHeading={"We have a good collection of delicious desserts"} img={desertImg} title={"dessert"} items={dessert} />
       <MenuCategory heading={"PIZZA"} subHeading={"We have the best pizza with variety of options"} img={pizzaImg} title={"pizza"} items={pizza} />
-      <MenuCategory heading={"SALADS"} subHeading={"We have the best salad made with organic components"} img={saladImg} title={"Salad"} items={salad} />
+      <MenuCategory heading={"SALADS"} subHeading={"We have the best salad made with organic components"} img={saladImg} title={"salad"} items={salad} />
       <MenuCategory heading={"SOUPS"} subHeading={"We have the best soup made with organic components"} img={soupImg} title={"soup"} items={soup} />
     </div>
   );
