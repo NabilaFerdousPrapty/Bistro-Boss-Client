@@ -6,8 +6,11 @@ import { FaBuildingUser } from "react-icons/fa6";
 import useAuth from "../../../hooks/UseAuth";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
+import UseCart from "../../../hooks/UseCart";
 const Navbar = () => {
   const { user, LogOut } = useAuth();
+  const [,cart] = UseCart();
+
   // console.log(user);
   // console.log(user.user?.photoURL);
   // console.log(user.user?.displayName);
@@ -121,12 +124,12 @@ const Navbar = () => {
               >
                 Contact Us
               </Link>
-              <Link
+              {/* <Link
                 to={"/dashboard"}
                 className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 Dashboard
-              </Link>
+              </Link> */}
               <Link
                 to={"/shop/salad"}
                 className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
@@ -140,9 +143,9 @@ const Navbar = () => {
                 className="hidden mx-4 text-gray-600 transition-colors duration-300 transform lg:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none"
                 aria-label="show search bar"
               >
-                <FaOpencart className="text-4xl" />
+                <FaOpencart className="text-5xl" />
                 <span className="absolute top-0 left-0 p-1 text-xs text-white bg-blue-500 rounded-full">
-                  1
+                  +{cart.length}
                 </span>
               </button>
 

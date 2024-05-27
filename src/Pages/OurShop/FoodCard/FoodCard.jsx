@@ -2,13 +2,49 @@ import React from "react";
 import useAuth from "../../../hooks/UseAuth";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import UseAxiosSecure from "../../../hooks/UseAxiosSecure";
+import UseCart from "../../../hooks/UseCart";
 
 const FoodCard = ({ item }) => {
+  
+  const { name, image, price, recipe ,_id} = item;
   const {user}=useAuth();
   const navigate=useNavigate();
+  const [refetch]=UseCart();
+  const axiosSecure=UseAxiosSecure();
   const handleAddToCart = (food) => {
     if (user && user.email) {
       console.log("Added to cart", food,user.email);
+      const cartedMenu={
+        menuId:_id,
+        email:user.email,
+        name,
+        image,
+        price,
+
+      }
+      axiosSecure.post('/carts',cartedMenu)
+      .then((response)=>{
+        console.log(response.data);
+        Swal.fire({
+          title: `${name} is Added to Cart`,
+          icon: 'success',
+          showConfirmButton: false,
+          timer: 1500,
+
+      
+      })
+      refetch();
+      })
+      .catch((error)=>{
+        console.log(error);
+        Swal.fire({
+          title: 'Failed to Add to Cart',
+          icon: 'error',
+          showConfirmButton: false,
+          timer: 1500,
+        })
+      })
       
     }else{
       Swal.fire({
@@ -26,7 +62,6 @@ const FoodCard = ({ item }) => {
 
   }
 
-  const { name, image, price, recipe } = item;
   return (
     <div>
       <div className="max-w-xs rounded-md shadow-md bg-gray-50 text-gray-800 relative">
