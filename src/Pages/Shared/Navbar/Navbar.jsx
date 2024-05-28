@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FaOpencart } from "react-icons/fa";
 import ContactUs from "./../../ContactUs/ContactUs";
 import { FaBuildingUser } from "react-icons/fa6";
@@ -139,7 +139,8 @@ const Navbar = () => {
             </div>
 
             <div className="flex items-center mt-4 lg:mt-0">
-              <button
+            <NavLink to={'dashboard/cart'}>
+            <button
                 className="hidden mx-4 text-gray-600 transition-colors duration-300 transform lg:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none"
                 aria-label="show search bar"
               >
@@ -148,6 +149,7 @@ const Navbar = () => {
                   +{cart.length}
                 </span>
               </button>
+            </NavLink>
 
               <div className="dropdown dropdown-end">
                 <div tabIndex={0} role="button" className=" m-1">
