@@ -205,7 +205,7 @@ const DashBoard = () => {
           </ul>
         </div>
       </div>
-      <div className="flex-1">
+      <div className="flex-1 px-8">
         <Outlet></Outlet>
       </div>
     </div>
