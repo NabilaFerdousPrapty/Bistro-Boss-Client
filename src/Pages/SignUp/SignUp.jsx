@@ -4,10 +4,12 @@ import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 import UseAxiosCommon from './../../hooks/UseAxiosCommon';
 const SignUp = () => {
-  const {  setUser,  createUser, updateUserProfile} = useAuth();
+  const {  setUser,  createUser, updateUserProfile,signInWithGoogle} = useAuth();
   const navigate = useNavigate();
   const axiosCommon=UseAxiosCommon();
+
   const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+  let to=location.state?.from || '/';
   const handleSignUp = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -59,17 +61,44 @@ const SignUp = () => {
 
       
     } 
+    const handleGoogleLogin=()=>{
+      signInWithGoogle()
+      .then((result)=>{
+        
+        const userInfo={name:result.user.displayName, email:result.user.email}
+        setUser(result.user);
+        axiosCommon.post("/users", userInfo)
+        .then((response) => {
+          if (response.data.insertedId) {
+            console.log("User Created Successfully");
+          }
+      })
+       Swal.fire({
+          title: 'Logged in successfully',
+          icon: 'success',
+          showCancelButton: false,
+          confirmButtonText: 'Ok'
+        })
+        // console.log(result);
+        navigate(to)}
+      )
+      .catch((error)=>{
+        toast.error('Failed to login');
+        console.log(error);
+      })
+    }
+    
 
 
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center h-screen my-9">
       <div className="flex  w-full max-w-sm mx-auto overflow-hidden  rounded-lg shadow-lg  lg:max-w-7xl ">
         <div className="w-full px-6 py-8 md:px-8 lg:w-1/2">
           <h2 className="mt-3 text-xl text-center font-bold">Sign Up</h2>
 
-          <a
-            href="#"
-            className="flex items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg  hover:bg-gray-50 "
+          <button onClick={handleGoogleLogin}
+            
+            className="flex items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg  hover:bg-gray-50 w-full"
           >
             <div className="px-4 py-2">
               <svg className="w-6 h-6" viewBox="0 0 40 40">
@@ -95,7 +124,7 @@ const SignUp = () => {
             <span className="w-5/6 px-4 py-3 font-bold text-center">
               Sign in with Google
             </span>
-          </a>
+          </button>
 
           <div className="flex items-center justify-between mt-4">
             <span className="w-1/5 border-b  lg:w-1/4"></span>

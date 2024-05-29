@@ -5,11 +5,13 @@ import { useEffect, useRef, useState } from 'react';
 import toast from 'react-hot-toast';
 import useAuth from '../../hooks/UseAuth';
 import Swal from 'sweetalert2';
+import UseAxiosCommon from '../../hooks/UseAxiosCommon';
 
 const Login = () => {
   const navigate=useNavigate();
+  const axiosCommon=UseAxiosCommon();
   const location=useLocation();
-  let from=location.state?.from || '/';
+  let to=location.state?.from || '/';
   
   const {signInWithGoogle,setUser,signInWithEmail}=useAuth();
   
@@ -32,7 +34,7 @@ const Login = () => {
       setUser(user);
      
       console.log(user);
-      navigate(from);
+      navigate(to);
     }).catch((error)=>{
       toast.error('Failed to login');
       console.log(error);
@@ -40,19 +42,32 @@ const Login = () => {
     )
 
   };
- const handleGoogleLogin=()=>{
-  signInWithGoogle()
-  .then((user)=>{
-    setUser(user);
-    toast.success('Logged in successfully');
-    console.log(user);
-    navigate(from)}
-  )
-  .catch((error)=>{
-    toast.error('Failed to login');
-    console.log(error);
-  })
-}
+  const handleGoogleLogin=()=>{
+    signInWithGoogle()
+    .then((result)=>{
+      
+      const userInfo={name:result.user.displayName, email:result.user.email}
+      setUser(result.user);
+      axiosCommon.post("/users", userInfo)
+      .then((response) => {
+        if (response.data.insertedId) {
+          console.log("User Created Successfully");
+        }
+    })
+     Swal.fire({
+        title: 'Logged in successfully',
+        icon: 'success',
+        showCancelButton: false,
+        confirmButtonText: 'Ok'
+      })
+      // console.log(result);
+      navigate(to)}
+    )
+    .catch((error)=>{
+      toast.error('Failed to login');
+      console.log(error);
+    })
+  }
 
   const capchaRef=useRef(null);
   const [loginDisabled,setLoginDisabled]=useState(true);
