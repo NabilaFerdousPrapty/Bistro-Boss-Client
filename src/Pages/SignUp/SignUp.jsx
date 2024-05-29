@@ -2,9 +2,11 @@ import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/UseAuth";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
+import UseAxiosCommon from './../../hooks/UseAxiosCommon';
 const SignUp = () => {
   const {  setUser,  createUser, updateUserProfile} = useAuth();
   const navigate = useNavigate();
+  const axiosCommon=UseAxiosCommon();
   const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
   const handleSignUp = async (e) => {
     e.preventDefault();
@@ -30,16 +32,24 @@ const SignUp = () => {
    createUser(email, password)
       .then((user) => {
         updateUserProfile(name, photo);
-        Swal.fire({
-          title: "User Created Successfully",
-          icon: "success",
-          cancelButtonText: "Ok",
+        const userInfo={name, email}
+        axiosCommon.post("/users", userInfo)
+        .then((response) => {
+          if (response.data.insertedId) {
+            console.log("User Created Successfully");
+            Swal.fire({
+              title: "User Created Successfully",
+              icon: "success",
+              cancelButtonText: "Ok",
+            })
+              
+            setUser(user);
+          navigate("/"),
+           form.reset();
+            console.log(user);
+          }
         })
-          
-        setUser(user);
-      navigate("/"),
-       form.reset();
-        console.log(user);
+       
       })
       .catch((error) => {
         console.log(error);
