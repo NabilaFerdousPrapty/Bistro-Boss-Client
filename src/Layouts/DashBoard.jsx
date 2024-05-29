@@ -16,8 +16,8 @@ const DashBoard = () => {
         <div className="divide-y divide-gray-300">
           {isAdmin ? (
               <ul className="pt-2 pb-4 space-y-8  text-sm">
-              <li className=" flex  gap-4 font-extrabold text-xl items-center hover:text-white">
-                <NavLink to={"dashboard/admin"}>
+              <li >
+                <NavLink className=" flex  gap-4 font-extrabold text-xl items-center hover:text-white" to={"adminHome"}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -37,12 +37,12 @@ const DashBoard = () => {
                       </clipPath>
                     </defs>
                   </svg>
-                </NavLink>
-                Admin Home
+                  Admin Home</NavLink>
+                
               </li>
 
               <li className="capitalize flex  gap-4 font-extrabold text-xl items-center hover:text-white">
-                <NavLink to={"dashboard/addItems"}>
+                <NavLink to={"addItems"}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -63,8 +63,8 @@ const DashBoard = () => {
                 add items
               </li>
 
-              <li className="capitalize flex  gap-4 font-extrabold text-xl items-center hover:text-white">
-                <NavLink to={"dashboard/manageItems"}>
+              <li >
+                <NavLink className="capitalize flex  gap-4 font-extrabold text-xl items-center hover:text-white" to={"manageItems"}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -97,12 +97,12 @@ const DashBoard = () => {
                       fill="#151515"
                     />
                   </svg>
-                </NavLink>
-                manage items
+                  manage items</NavLink>
+                
               </li>
 
-              <li className=" flex  gap-4 font-extrabold text-xl items-center hover:text-white">
-                <NavLink to={"dashboard/Bookings"}>
+              <li>
+                <NavLink  className=" flex  gap-4 font-extrabold text-xl items-center hover:text-white" to={"Bookings"}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -115,12 +115,12 @@ const DashBoard = () => {
                       fill="#151515"
                     />
                   </svg>
-                </NavLink>
-                Manage bookings
+                  Manage bookings </NavLink>
+                
               </li>
 
-              <li className="capitalize flex  gap-4 font-extrabold text-xl items-center hover:text-white">
-                <NavLink to={"dashboard/allUsers"}>
+              <li className="">
+                <NavLink className="capitalize flex  gap-4 font-extrabold text-xl items-center hover:text-white" to={"allUsers"}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -160,15 +160,16 @@ const DashBoard = () => {
                       </clipPath>
                     </defs>
                   </svg>
+                  all users
                 </NavLink>
-                all users
+                
               </li>
             </ul>
             
           ) : (
             <ul className="pt-2 pb-4 space-y-8  text-sm">
-            <li className=" flex  gap-4 font-extrabold text-xl items-center hover:text-white">
-              <NavLink to={"dashboard/userHome"}>
+            <li >
+              <NavLink className=" flex  gap-4 font-extrabold text-xl items-center hover:text-white"  to={"userHome"}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -188,12 +189,12 @@ const DashBoard = () => {
                     </clipPath>
                   </defs>
                 </svg>
-              </NavLink>
-              User Home
+                User Home </NavLink>
+              
             </li>
 
-            <li className="capitalize flex  gap-4 font-extrabold text-xl items-center hover:text-white">
-              <NavLink to={"dashboard/reservation"}>
+            <li >
+              <NavLink className="capitalize flex  gap-4 font-extrabold text-xl items-center hover:text-white" to={"reservation"}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -206,12 +207,12 @@ const DashBoard = () => {
                     fill="white"
                   />
                 </svg>
-              </NavLink>
-              reservation
+                reservation</NavLink>
+             
             </li>
 
-            <li className="capitalize flex  gap-4 font-extrabold text-xl items-center hover:text-white">
-              <NavLink to={"dashboard/paymentHistory"}>
+            <li >
+              <NavLink className="capitalize flex  gap-4 font-extrabold text-xl items-center hover:text-white" to={"paymentHistory"}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -235,12 +236,12 @@ const DashBoard = () => {
                     </clipPath>
                   </defs>
                 </svg>
-              </NavLink>
-              payment history
+                payment history</NavLink>
+              
             </li>
 
-            <li className=" flex  gap-4 font-extrabold text-xl items-center hover:text-white">
-              <NavLink to={"dashboard/myCart"}>
+            <li >
+              <NavLink className=" flex  gap-4 font-extrabold text-xl items-center hover:text-white" to={"myCart"}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -272,8 +273,8 @@ const DashBoard = () => {
               my cart
             </li>
 
-            <li className="capitalize flex  gap-4 font-extrabold text-xl items-center hover:text-white">
-              <NavLink to={"dashboard/addReview"}>
+            <li >
+              <NavLink className="capitalize flex  gap-4 font-extrabold text-xl items-center hover:text-white" to={"addReview"}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -305,11 +306,11 @@ const DashBoard = () => {
                     </clipPath>
                   </defs>
                 </svg>
-              </NavLink>
-              add review
+                add review</NavLink>
+              
             </li>
-            <li className="capitalize flex  gap-4 font-extrabold text-xl items-center hover:text-white">
-              <NavLink to={"dashboard/myBookings"}>
+            <li >
+              <NavLink className="capitalize flex  gap-4 font-extrabold text-xl items-center hover:text-white" to={"myBookings"}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -326,8 +327,9 @@ const DashBoard = () => {
                     fill="black"
                   />
                 </svg>
+                my booking
               </NavLink>
-              my booking
+              
             </li>
           </ul>
           )}
