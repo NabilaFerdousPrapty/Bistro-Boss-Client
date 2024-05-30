@@ -1,11 +1,12 @@
-import React from "react";
+
 import { FaHome, FaShoppingBag } from "react-icons/fa";
 import { FaRegMessage } from "react-icons/fa6";
 import { IoMdMenu } from "react-icons/io";
-import { Link, NavLink, Outlet } from "react-router-dom";
+import {  NavLink, Outlet } from "react-router-dom";
+import UseAdmin from "../hooks/UseAdmin";
 
 const DashBoard = () => {
-  const isAdmin = true;
+  const [isAdmin] = UseAdmin();
   return (
     <div className="flex">
       <div className=" p-3 space-y-2 w-60 bg-[#D1A054] h-screen">
@@ -241,7 +242,7 @@ const DashBoard = () => {
             </li>
 
             <li >
-              <NavLink className=" flex  gap-4 font-extrabold text-xl items-center hover:text-white" to={"myCart"}>
+              <NavLink className=" flex  gap-4 font-extrabold text-xl items-center hover:text-white" to={"cart"}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -269,8 +270,9 @@ const DashBoard = () => {
                     </clipPath>
                   </defs>
                 </svg>
+                my cart
               </NavLink>
-              my cart
+             
             </li>
 
             <li >
