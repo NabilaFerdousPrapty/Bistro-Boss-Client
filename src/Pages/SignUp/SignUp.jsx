@@ -21,12 +21,21 @@ const SignUp = () => {
     if (password !== confirmPassword) {
       console.log("Password does not match");
       
-      toast.error("Password does not match");
+      Swal.fire({
+        title:'Error !',
+        text:'Password does not match to confirm password',
+        timer:2000
+      })
       form.reset();
       return;
     }
     if(!regex.test(password)){
       toast.error('Password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters');
+      Swal.fire({
+        title:'Error !',
+        text:'Password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters',
+        timer:2000
+      })
       form.reset();
       return;
 
@@ -83,8 +92,14 @@ const SignUp = () => {
         navigate(to)}
       )
       .catch((error)=>{
-        toast.error('Failed to login');
-        console.log(error);
+       Swal.fire({
+        title: 'Logged in Failed',
+        text:`${error}`,
+          icon: 'Error',
+          showCancelButton: false,
+          confirmButtonText: 'Ok'
+       })
+        console.log(error.message);
       })
     }
     
