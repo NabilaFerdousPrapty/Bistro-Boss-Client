@@ -1,16 +1,54 @@
 import React from 'react';
 import SectionTitle from '../../../components/SectionTitle/SectionTitle';
 import UseMenu from '../../../hooks/UseMenu';
+import Swal from 'sweetalert2';
+import UseAxiosSecure from '../../../hooks/UseAxiosSecure';
+import UseCart from '../../../hooks/UseCart';
+import { Link } from 'react-router-dom';
 
 const ManageItems = () => {
-    const [menu, loading] = UseMenu();
+    const axiosSecure = UseAxiosSecure();
+    const [menu,laoding,refetch] = UseMenu();
+    const handleDeleteItem=(item)=>{
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
+          }).then( async(result) => {
+            if (result.isConfirmed) {
+              const res= await  axiosSecure.delete(`/menu/${item._id}`)
+              console.log(res.data);
+              console.log(res.data.deletedCount);
+              if (res.data.deletedCount) {
+                Swal.fire(
+                    {
+                        title: "Deleted!",
+                        text: "Your file has been deleted.",
+                        icon: "success",
+                        showConfirmButton: false,
+                    }
+                    
+                );
+                refetch();
+                
+              }
+            }
+          });
+    }
+    
     return (
         <div>
           <SectionTitle heading="---Hurry Up!---" subHeading='MANAGE ALL ITEMS'/>
 
           <div>
           <div className="container p-2 mx-auto sm:p-4 text-gray-800">
-	<h2 className="mb-4 text-2xl font-semibold leading-tight">Invoices</h2>
+	<h2 className="mb-4 text-2xl font-semibold leading-tight">
+        All Items in the Menu {menu.length}
+    </h2>
 	<div className="overflow-x-auto">
 		<table className="min-w-full text-xs">
 			<colgroup>
@@ -51,7 +89,8 @@ const ManageItems = () => {
                     }
 					</td>
                     <td className="relative">
-                    <button
+                   <Link to={`/dashboard/updateItem/${item._id}`}>
+                   <button 
                       
                       className={`btn bg-[#D1A054] `}
                     ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -60,9 +99,11 @@ const ManageItems = () => {
                   </svg>
                      
                     </button>
+                   
+                   </Link>
                 </td>
                 <td>
-                  <button
+                  <button onClick={()=>handleDeleteItem(item)}
                     
                     className="btn bg-[#B91C1C]"
                   >
