@@ -1,4 +1,4 @@
-import React from "react";
+
 
 const SectionTitle = ({ heading, subHeading,text }) => {
   return (
@@ -8,7 +8,7 @@ const SectionTitle = ({ heading, subHeading,text }) => {
           ---{subHeading}---
         </h2>
         <h2 className="text-center border-y-4 py-2 border-[#E8E8E8] ">
-          <span className="text-xl font-medium">{heading} </span>
+          <span className="text-3xl font-medium">{heading} </span>
          
         </h2>
         <p className="text-center">

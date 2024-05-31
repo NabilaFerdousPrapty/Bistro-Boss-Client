@@ -18,7 +18,7 @@ const DashBoard = () => {
           {isAdmin ? (
               <ul className="pt-2 pb-4 space-y-8  text-sm">
               <li >
-                <NavLink className=" flex  gap-4 font-extrabold text-xl items-center hover:text-white" to={"adminHome"}>
+                <NavLink className=" flex  gap-4 font-extrabold text-xl items-center hover:text-white" to={"/dashboard/adminHome"}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -42,8 +42,8 @@ const DashBoard = () => {
                 
               </li>
 
-              <li className="capitalize flex  gap-4 font-extrabold text-xl items-center hover:text-white">
-                <NavLink to={"addItems"}>
+              <li >
+                <NavLink className="capitalize flex  gap-4 font-extrabold text-xl items-center hover:text-white" to={"/dashboard/addItems"}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -60,8 +60,9 @@ const DashBoard = () => {
                       fill="#151515"
                     />
                   </svg>
+                  add items
                 </NavLink>
-                add items
+               
               </li>
 
               <li >
@@ -170,7 +171,7 @@ const DashBoard = () => {
           ) : (
             <ul className="pt-2 pb-4 space-y-8  text-sm">
             <li >
-              <NavLink className=" flex  gap-4 font-extrabold text-xl items-center hover:text-white"  to={"userHome"}>
+              <NavLink className=" flex  gap-4 font-extrabold text-xl items-center hover:text-white"  to={"/"}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
