@@ -66,7 +66,7 @@ const DashBoard = () => {
               </li>
 
               <li >
-                <NavLink className="capitalize flex  gap-4 font-extrabold text-xl items-center hover:text-white" to={"manageItems"}>
+                <NavLink className="capitalize flex  gap-4 font-extrabold text-xl items-center hover:text-white" to={"/dashboard/manageItems"}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
