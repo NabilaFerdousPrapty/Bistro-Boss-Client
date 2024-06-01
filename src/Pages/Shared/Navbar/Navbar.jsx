@@ -19,10 +19,10 @@ const Navbar = () => {
   
     LogOut()
     .then((res) => {
-      console.log(res);
-      Swal.fire({
+      // console.log(res);
+     Swal.fire({
         title: "You are Logged Out Successfully!",
-        text: "You will be redirected to the home page.",
+        text: `${res.message}`,
         icon: "success",
       });
     })
@@ -32,7 +32,7 @@ const Navbar = () => {
         text: err.message,
         icon: "error",
       });
-      console.log(err);
+      // console.log(err);
     });
   };
   const toggleMenu = () => {

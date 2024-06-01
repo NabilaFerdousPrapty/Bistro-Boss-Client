@@ -18,7 +18,8 @@ const AddItems = () => {
   } = useForm();
 
   const onSubmit =async (data) =>
-    {console.log(data);
+    {
+      // console.log(data);
         const imageFile={image:data.image[0]}
         const response=await axiosCommon.post(image_hosting_api,imageFile,{
             headers:{
@@ -34,7 +35,7 @@ const AddItems = () => {
                 image:response.data.data.display_url
             }
           const menuResponse=await  axiosSecure.post('/menu',menuItem);
-          console.log(menuResponse.data);
+          // console.log(menuResponse.data);
           if(menuResponse.data.insertedId){
              Swal.fire({
                 icon: 'success',
@@ -44,7 +45,7 @@ const AddItems = () => {
               })
           }
         }
-        console.log(response.data);
+        // console.log(response.data);
 
     };
   return (

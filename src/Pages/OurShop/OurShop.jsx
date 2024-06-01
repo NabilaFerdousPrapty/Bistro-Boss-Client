@@ -9,7 +9,7 @@ import { useParams } from "react-router-dom";
 const OurShop = () => {
   const categories = ["salad", "pizza", "soup", "dessert", "offered", "drinks"];
   const { category } = useParams();
-  console.log(category);
+  // console.log(category);
   const initailIndex = categories.indexOf(category);
   const [tabIndex, setTabIndex] = useState(initailIndex);
  

@@ -14,7 +14,7 @@ const FoodCard = ({ item }) => {
   const axiosSecure=UseAxiosSecure();
   const handleAddToCart = (food) => {
     if (user && user.email) {
-      console.log("Added to cart", food,user.email);
+      // console.log("Added to cart", food,user.email);
       const cartedMenu={
         menuId:_id,
         email:user.email,
@@ -25,7 +25,7 @@ const FoodCard = ({ item }) => {
       }
       axiosSecure.post('/carts',cartedMenu)
       .then((response)=>{
-        console.log(response.data);
+        // console.log(response.data);
         Swal.fire({
           title: `${name} is Added to Cart`,
           icon: 'success',
@@ -37,7 +37,7 @@ const FoodCard = ({ item }) => {
       refetch();
       })
       .catch((error)=>{
-        console.log(error);
+        // console.log(error);
         Swal.fire({
           title: 'Failed to Add to Cart',
           icon: 'error',

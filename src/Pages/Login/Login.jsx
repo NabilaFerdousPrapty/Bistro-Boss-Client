@@ -22,7 +22,7 @@ const Login = () => {
     const email = form.email.value;
 
     const password = form.password.value;
-   console.log(email,password);
+  //  console.log(email,password);
    signInWithEmail(email,password)
     .then((user)=>{
       Swal.fire({
@@ -33,11 +33,18 @@ const Login = () => {
       })
       setUser(user);
      
-      console.log(user);
+      // console.log(user);
       navigate(to);
     }).catch((error)=>{
-      toast.error('Failed to login');
-      console.log(error);
+     Swal.fire({
+
+        title: 'Failed to login',
+        icon: 'error',
+        text:`${error.message}`,
+        showCancelButton: false,
+        confirmButtonText: 'Ok'
+      })
+      // console.log(error);
     }
     )
 
@@ -64,8 +71,14 @@ const Login = () => {
       navigate(to)}
     )
     .catch((error)=>{
-      toast.error('Failed to login');
-      console.log(error);
+      Swal.fire({
+
+        title: 'Failed to login',
+        icon: 'error',
+        text:`${error.message}`,
+        showCancelButton: false,
+        confirmButtonText: 'Ok'
+      })
     })
   }
 
@@ -79,9 +92,9 @@ const Login = () => {
   
   const handleValidateCaptcha=()=>{
     const captcha=capchaRef.current.value;
-    console.log(captcha);
+    // console.log(captcha);
     const result=validateCaptcha(captcha);
-    console.log(result);
+    // console.log(result);
     if(result){
       toast.success('Captcha is valid');
       setLoginDisabled(false);

@@ -18,7 +18,8 @@ const UpdateAnItem = () => {
       } = useForm();
     
       const onSubmit =async (data) =>
-        {console.log(data);
+        {
+            // console.log(data);
             const imageFile={image:data.image[0]}
             const response=await axiosCommon.post(image_hosting_api,imageFile,{
                 headers:{
@@ -34,7 +35,7 @@ const UpdateAnItem = () => {
                     image:response.data.data.display_url
                 }
               const menuResponse=await  axiosSecure.patch(`/menu/${item._id}`,menuItem);
-              console.log(menuResponse.data);
+            //   console.log(menuResponse.data);
               if(menuResponse.data.modifiedCount>0){
                 Swal.fire({
                     title: "Good job!",
