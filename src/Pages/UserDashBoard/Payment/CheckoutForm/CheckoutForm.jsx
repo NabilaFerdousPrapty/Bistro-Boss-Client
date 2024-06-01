@@ -12,7 +12,7 @@ const CheckoutForm = () => {
     const {user}=useAuth();
     const [error, setError] = useState('');
     const [clientSecret, setClientSecret] = useState('');
-    const [, cart] = UseCart();
+    const [refetch, cart] = UseCart();
     const totalPrice = cart.reduce((total, item) => total + item.price, 0);
     const axiosSecure = useAxiosSecure();
 
@@ -76,7 +76,25 @@ const CheckoutForm = () => {
                 console.log(`${paymentIntent.id} is the payment intent id`);
               //  alert(`Payment successful. Payment intent id: ${paymentIntent.id}`);
               setTransactionId(paymentIntent.id);
+              const payment = {
+                email: user?.email || 'Anonymous',
+                price: totalPrice,
+                date: new Date().toISOString(),
+                cartIds: cart.map(item => item._id),
+                menuItemIds: cart.map(item => item.menuId),
+                status: 'pending',
+                transactionId: paymentIntent.id,
+              };
             
+              const res = await axiosSecure.post('/payments', payment);
+              console.log('Payment saved', res.data);
+              if (res.data.paymentResult.insertedId) {
+                alert('Payment successful');
+                
+              }
+              refetch()
+
+
 
             }
         }
